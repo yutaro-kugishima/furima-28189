@@ -26,13 +26,13 @@ Things you may want to cover:
 * Configuration
 | Column               | Type    | Options                        |
 | -------------------- | ------  | ------------------------------ |
-| prefecture_id        | integer | null: false, foreign_key: true |
-| post_code_id         | string  | null: false, foreign_key: true |
-| city_id              | string  | null: false, foreign_key: true |
-| town_id              | string  | null: false, foreign_key: true |
-| building_id          | string  |                                |
-| telephone_id         | string  | null: false, foreign_key: true |
-| item_transaction_id  | integer  | null: false, foreign_key: true |
+| prefecture_id        | integer | null: false                    |
+| post_code            | string  | null: false,                   |
+| city                 | string  | null: false,                   |
+| town                 | string  | null: false,                   |
+| building             | string  |                                |
+| telephone            | string  | null: false                    |
+| item_transaction_id  | integer | null: false, foreign_key: true |
 
 * Database creation
 ### Association
@@ -44,16 +44,17 @@ Things you may want to cover:
 ## items テーブル
 
 * Services (job queues, cache servers, search engines, etc.)
-| Column             | Type    | Options     |
-| ------------------ | ------  | ----------- |
-| list               | string  | null: false |
-| detail             | text    | null: false |
-| price              | string  | null: false |
-| category_id        | integer | null: false |
-| status_id          | integer | null: false |
-| fee_id             | integer | null: false |
-| delivery_place_id  | integer | null: false |
-| delivery_days_id   | integer | null: false |
+| Column             | Type    | Options                        |
+| ------------------ | ------  |------------------------------- |
+| list               | string  | null: false                    |
+| detail             | text    | null: false                    |
+| price              | integer | null: false                    |
+| category_id        | integer | null: false                    |
+| status_id          | integer | null: false                    |
+| fee_id             | integer | null: false                    |
+| delivery_place_id  | integer | null: false                    |
+| delivery_days_id   | integer | null: false                    |
+| user_id            | integer | null: false, foreign_key: true |
 
 * Deployment instructions
 ### Association
