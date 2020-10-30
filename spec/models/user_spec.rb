@@ -7,9 +7,27 @@ RSpec.describe User, type: :model do
 
   describe 'ユーザー新規登録' do
     context "新規登録ができる" do
-    
+      it "名字が全角だと登録できる" do
+        @user.first_name=""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name 全角文字を使用してください")
+      end
+      it "名前が全角だと登録できる" do
+        @user.last_name=""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name 全角文字を使用してください")
+      end
+      it "名字（カナ）がカタカナだと登録できる" do
+        @user.first_name_kana=""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("First name kana 全角文字（カナ）を使用してください")
+      end
+      it "名前（カナ）がカタカナだと登録できる" do
+        @user.last_name_kana=""
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Last name kana 全角文字（カナ）を使用してください")
+      end
     end
-
 
     context "新規登録ができない" do
       it "ニックネームが空である" do
