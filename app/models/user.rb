@@ -10,6 +10,7 @@ class User < ApplicationRecord
     validates :first_name_kana, format: { with: /\A[ァ-ン]+\z/, message: '全角文字（カナ）を使用してください' }
     validates :last_name_kana, format: { with: /\A[ァ-ン]+\z/, message: '全角文字（カナ）を使用してください' }
     validates :birth_date
+    # validates :email, format: {with:@, message: '@を入力してください'}
     validates :password, format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: '6文字以上にしてください' }
   end
 end
