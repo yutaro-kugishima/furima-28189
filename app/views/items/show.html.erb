@@ -31,7 +31,7 @@
       <%= link_to '削除', item_path(@item.id), method: :delete, class:'item-destroy' %>
       <% elsif %>
       <%# 商品が売れていない場合はこちらを表示しましょう %>
-      <%= link_to '購入画面に進む', orders_path(@item.id) ,class:"item-red-btn"%>
+      <%= link_to '購入画面に進む', item_orders_path(@item.id) ,class:"item-red-btn"%>
       <%# //商品が売れていない場合はこちらを表示しましょう %>
       <% end %>
     <% end %>
@@ -46,7 +46,7 @@
       <tbody>
         <tr>
           <th class="detail-item">出品者</th>
-          <td class="detail-value"><%= @item.user_id %></td>
+          <td class="detail-value"><%= @item.user.nickname %></td>
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
