@@ -1,0 +1,41 @@
+<%= form_with(model: @item, url: root_path, local: true) do |form| %>
+  <h1>購入内容の確認</h1>
+  <div class="field">
+    <%= form.label :name, "名前（全角）" %>
+    <%= form.text_field :name %>
+  </div>
+  <h2>クレジットカード情報入力</h2>
+  <div class="field">
+    <%= form.label :card_information, "カード情報" %>
+    <%= form.text_field :card_information %>
+  <div class="field">
+    <%= form.label :valide_date, "有効期限" %>
+    <%= form.text_field :valide_date %>
+  <div class="field">
+    <%= form.label :security_code, "セキュリティコード" %>
+    <%= form.text_field :security_code %>
+  </div>
+    <h2>配送先入力</h2>
+  <div class="field">
+    <%= form.label :postal_code, "郵便番号" %>
+    <%= form.text_field :postal_code %>
+  <div class="field">
+    <%= form.label :prefecture, "都道府県" %>
+    <%= form.text_field :prefecture %>
+  <div class="field">
+    <%= form.label :city, "市区町村" %>
+    <%= form.text_field :city %>
+  <div class="field">
+    <%= form.label :house_number, "ニックネーム（半角英数）" %>
+    <%= form.text_field :house_number %>
+  <div class="field">
+    <%= form.label :building_name, "ニックネーム（半角英数）" %>
+    <%= form.text_field :building_name %>
+  <div class="field">
+    <%= form.label :telephone_number, "ニックネーム（半角英数）" %>
+    <%= form.text_field :telephone_number %>
+  </div>
+  <div class="actions">
+    <%= link_to '購入', root_path %>
+  </div>
+<% end %>

@@ -26,11 +26,11 @@ Things you may want to cover:
 * Configuration
 | Column               | Type    | Options                        |
 | -------------------- | ------  | ------------------------------ |
-| prefecture_id        | integer | null: false                    |
-| post_code            | string  | null: false,                   |
+| postal_code          | string  | null: false,                   |
+| prefecture           | integer | null: false                    |
 | city                 | string  | null: false,                   |
-| town                 | string  | null: false,                   |
-| building             | string  |                                |
+| house_number         | string  | null: false,                   |
+| building_name        | string  |                                |
 | telephone            | string  | null: false                    |
 | item_transaction_id  | integer | null: false, foreign_key: true |
 

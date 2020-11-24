@@ -28,9 +28,9 @@
   justify-content: center;
 }
 
-.buy-item-img {
+.items-box-img {
   margin-right: 20px;
-  height: 130px;
+  height: 150px;
   width: 250px;
   object-fit: contain;
 }
@@ -154,3 +154,8 @@
   font-size: 14px;
   cursor: pointer;
 }
+/* 
+.item-box-img {
+ width: 100px;
+ height: 100px;
+} */
