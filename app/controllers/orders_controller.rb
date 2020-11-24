@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:index, :new]
+  before_action :item_find, only: [:index, :create]
+  before_action :move_to_session, only: :index
+  before_action :move_to_index, only: :index
+  before_action :move_to_top, only: :index
 
   def index
-    @item = Item.find(params[:item_id])
   end
 
   def new
@@ -10,8 +13,6 @@ class OrdersController < ApplicationController
 
   def create
     @order = ItemTransaction.new(order_params)
-    @item = Item.find(params[:item_id])
-    # binding.pry
     if @order.valid?
       pay_item
       @order.save
@@ -23,6 +24,29 @@ class OrdersController < ApplicationController
 
   def set_order
     @order = ItemTransaction.new
+  end
+
+
+  def item_find
+    @item = Item.find(params[:item_id])
+  end
+
+  def move_to_session
+    unless user_signed_in?
+      redirect_to new_user_session_path
+    end
+  end
+  
+  def move_to_index
+    if current_user == @item.user
+      redirect_to root_path
+    end
+  end
+
+  def move_to_top
+    if @item.order != nil
+       redirect_to root_path
+    end
   end
 
   private

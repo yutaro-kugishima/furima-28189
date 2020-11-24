@@ -19,7 +19,6 @@ RSpec.describe ItemTransaction, type: :model do
       it "郵便番号が空では保存できないこと" do
         @order.postal_code = nil
         @order.valid?
-        # binding.pry
         expect(@order.errors.full_messages).to include("Postal code can't be blank")
       end
       it "郵便番号がハイフンがないと保存できないこと" do
@@ -32,6 +31,11 @@ RSpec.describe ItemTransaction, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Prefecture can't be blank")
       end
+      it "都道府県が0の時は保存できないこと" do
+        @order.prefecture = 0
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Prefecture must be other than 0")
+      end
       it "市区町村が空では保存できないこと" do
         @order.city = nil
         @order.valid?
@@ -41,6 +45,10 @@ RSpec.describe ItemTransaction, type: :model do
         @order.house_number = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("House number can't be blank")
+      end
+      it "建物は空でも保存される" do
+        @order.building_name = nil
+        expect(@order).to be_valid
       end
       it "電話番号が空では保存できないこと" do
         @order.telephone_number = nil
